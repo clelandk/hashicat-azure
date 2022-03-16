@@ -1,9 +1,4 @@
-provider "azurerm" {
-  features {}
-}
-
-
-resource "azurerm_resource_group" "myresourcegroup" {
+resource "azurerm_resource_group" "myresourcegroup_network" {
   name     = "${var.prefix}-workshop"
   location = var.location
 
@@ -30,5 +25,5 @@ module "network" {
     costcenter  = "it"
   }
 
-  depends_on = [azurerm_resource_group.example]
+  depends_on = [azurerm_resource_group.myresourcegroup_network]
 }
